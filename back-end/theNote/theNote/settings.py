@@ -1,4 +1,8 @@
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -101,8 +105,8 @@ REST_FRAMEWORK = {
     )
 }
 
-SOCIAL_AUTH_GITHUB_KEY = 'Ov23lifL9nndBdxL6yh2'
-SOCIAL_AUTH_GITHUB_SECRET = '50f6ac66f628df76491a3785a95d3eb8a4898546'
+SOCIAL_AUTH_GITHUB_KEY = os.getenv('SOCIAL_AUTH_GITHUB_KEY')
+SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True

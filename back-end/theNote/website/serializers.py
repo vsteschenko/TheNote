@@ -4,4 +4,5 @@ from .models import Note
 class NoteSerializer(ModelSerializer):
     class Meta:
         model = Note
-        fields = "__all__"
+        fields = ['id', 'text', 'owner']
+        read_only_fields = ['owner']

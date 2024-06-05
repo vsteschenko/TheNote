@@ -9,6 +9,11 @@ class NoteViewSet(ModelViewSet):
     serializer_class = NoteSerializer
     permission_classes = [IsAuthenticated]
 
+    def perform_create(self, serializer):
+        print(f"Current user: {self.request.user}") 
+        serializer.validated_data["owner"] = self.request.user
+        serializer.save()
+
 
 def auth(request):
     return render(request, 'oauth.html')
