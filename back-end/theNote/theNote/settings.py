@@ -58,8 +58,8 @@ WSGI_APPLICATION = 'theNote.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'website_db',
-        'USER': 'website_user',
+        'NAME': 'website_db_1',
+        'USER': 'website_user_1',
         'PASSWORD': 'hn78er',
         'HOST': 'localhost',
         'PORT': '',

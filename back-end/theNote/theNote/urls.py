@@ -4,7 +4,7 @@ from rest_framework.routers import SimpleRouter
 from website.views import NoteViewSet, auth
 
 router = SimpleRouter()
-router.register(r'note', NoteViewSet)
+router.register(r'note', NoteViewSet, basename='note')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
