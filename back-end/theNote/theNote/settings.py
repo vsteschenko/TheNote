@@ -6,7 +6,7 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-e8cdwju5@&utf)gob)!ho^obm9#$9s)k#_k13r!@p99hc_b00a'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = True
 
@@ -20,7 +20,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'social_django',
+    'rest_framework',
+    'rest_framework.authtoken',
 
     'website',
 ]
@@ -40,7 +41,7 @@ ROOT_URLCONF = 'theNote.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -58,18 +59,13 @@ WSGI_APPLICATION = 'theNote.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'website_db_1',
-        'USER': 'website_user_1',
-        'PASSWORD': 'hn78er',
+        'NAME': 'kraken_db',
+        'USER': 'kraken',
+        'PASSWORD': '123',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
-
-AUTHENTICATION_BACKENDS = (
-    'social_core.backends.github.GithubOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -95,18 +91,6 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
-
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    ),
-    'DEFAULT_PARSER_CLASSES': (
-        'rest_framework.parsers.JSONParser',
-    )
-}
-
-SOCIAL_AUTH_GITHUB_KEY = os.getenv('SOCIAL_AUTH_GITHUB_KEY')
-SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
