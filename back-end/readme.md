@@ -14,66 +14,25 @@ Example:
 
 ## Endpoints
 
-### 1. `/users`
+### Admin Site
+- `GET /admin/`
 
-#### GET `/users`
-- **Description**: Retrieve a list of all users.
-- **Parameters**: None
-- **Authorization**: Required
-- **Response**: JSON object containing an array of user objects.
+### Authentication
+- `POST /login/` - Login endpoint {"username": "", "password": ""}
+- `POST /signup/` - Signup endpoint {"email": "", "password": "", "username": ""}
 
-#### GET `/users/{id}`
-- **Description**: Retrieve information about a specific user.
-- **Parameters**: `id` (integer) - ID of the user.
-- **Authorization**: Required
-- **Response**: JSON object containing user details.
+### Note Operations
+- `GET /note/` - List all notes (for staff) or user's own notes
+- `POST /note/` - Create a new note
+- `GET /note/{id}/` - Retrieve a specific note by its ID
+- `PUT /note/{id}/` - Update a specific note by its ID
+- `PATCH /note/{id}/` - Partially update a specific note by its ID
+- `DELETE /note/{id}/` - Delete a specific note by its ID
 
-#### POST `/users`
-- **Description**: Create a new user.
-- **Parameters**: JSON object with user details (e.g., name, email).
-- **Authorization**: Required
-- **Response**: JSON object containing details of the newly created user.
+### Upload Image
+- `POST /note/upload_image/` - Upload an image and create a note with the image URL
 
-#### PUT `/users/{id}`
-- **Description**: Update an existing user.
-- **Parameters**: `id` (integer) - ID of the user, JSON object with updated user details.
-- **Authorization**: Required
-- **Response**: JSON object containing updated user details.
+### Test Token
+- `GET /test_token/` - Test if the provided token is valid
 
-#### DELETE `/users/{id}`
-- **Description**: Delete a user.
-- **Parameters**: `id` (integer) - ID of the user to be deleted.
-- **Authorization**: Required
-- **Response**: Status code indicating success or failure.
 
-### 2. `/posts`
-
-#### GET `/posts`
-- **Description**: Retrieve a list of all posts.
-- **Parameters**: None
-- **Authorization**: Required
-- **Response**: JSON object containing an array of post objects.
-
-#### GET `/posts/{id}`
-- **Description**: Retrieve information about a specific post.
-- **Parameters**: `id` (integer) - ID of the post.
-- **Authorization**: Required
-- **Response**: JSON object containing post details.
-
-#### POST `/posts`
-- **Description**: Create a new post.
-- **Parameters**: JSON object with post details (e.g., title, content).
-- **Authorization**: Required
-- **Response**: JSON object containing details of the newly created post.
-
-#### PUT `/posts/{id}`
-- **Description**: Update an existing post.
-- **Parameters**: `id` (integer) - ID of the post, JSON object with updated post details.
-- **Authorization**: Required
-- **Response**: JSON object containing updated post details.
-
-#### DELETE `/posts/{id}`
-- **Description**: Delete a post.
-- **Parameters**: `id` (integer) - ID of the post to be deleted.
-- **Authorization**: Required
-- **Response**: Status code indicating success or failure.
