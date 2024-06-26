@@ -19,7 +19,7 @@ export default function Page() {
     const [token, setToken] = useState(() => {
         // Retrieve the token from local storage when initializing state
         if (typeof window !== 'undefined') {
-            const savedToken = localStorage.getItem('token');
+            const savedToken = localStorage.getItem('Token');
             return savedToken ? savedToken : '';
         }
         return '';
@@ -45,11 +45,10 @@ export default function Page() {
                 if (response.data.token) {
                     const newToken = response.data.token;
                     setToken(newToken);
-                    localStorage.setItem('token', token);
+                    localStorage.setItem('Token', token);
                     router.push('/dashboard')
                 };
             })
-            .then()
             .catch((error) => {
                 console.log(error);
             });

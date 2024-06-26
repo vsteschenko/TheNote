@@ -29,7 +29,7 @@ const Page = () => {
 
     const handleSubmit = async (event: any) => {
         event.preventDefault();
-        // const savedToken = localStorage.getItem('token');
+        const savedToken = localStorage.getItem('token');
         axios.post('https://lovely-project-with-oleg-e553e563fe5a.herokuapp.com/login/', {
             username: userName,
             password: userPassword
