@@ -1,4 +1,4 @@
-
+"use client"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import {
@@ -12,12 +12,16 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import axios from "axios"
+import Toolbar from "./Toolbar"
+import { Editor, isActive } from '@tiptap/react';
+import NotePicker from "./NotePicker"
 
-
+type Props = {
+    editor: Editor | null;
+    content: string;
+};
 
 export function NewNoteDialog() {
-
-
     const [newNoteTitle, setNewNoteTitle] = useState("new note")
 
     const handleNewNoteTitle = async (e: any) => {
@@ -49,39 +53,46 @@ export function NewNoteDialog() {
     //         });
     // }
     return (
-        <Dialog>
-            <DialogTrigger asChild>
-                <Button variant="outline" className="hover:bg-slate-800 hover:text-white ease-in-out duration-300 transition-all">New Note</Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                    <DialogTitle>New Note</DialogTitle>
-                    <DialogDescription>
-                        Type a title of your new note. Click save when you are done.
-                    </DialogDescription>
-                </DialogHeader>
-                <div className="w-full p-2">
-                    <div className=" items-center gap-4">
-                        <Input
-                            onChange={(e) => setNewNoteTitle(e.target.value)}
-                            // onChange={() => handleNewNoteTitle()}
-                            id="name"
-                            defaultValue="new note title"
-                            className="w-full rounded-md "
-                            placeholder="New note title"
-                        />
-                    </div>
-                </div>
-                <DialogFooter className="flex gap-2 justify-between ease">
-                    <Button type="reset" variant={"secondary"}
-                        className="hover:bg-slate-700 hover:text-white ease-in-out transition-all duration-200 ">Cancel</Button>
-                    <Button type="submit"
-                        onClick={handleNewNoteTitle}
-                        variant={"default"} className="hover:bg-slate-700 hover:text-white ease-in-out transition-all duration-200">Create new note</Button>
 
-                </DialogFooter>
-            </DialogContent>
-        </Dialog >
+
+        <div className="w-screen">
+            <Dialog >
+                <DialogTrigger asChild>
+                    <Button variant="outline" className="hover:bg-slate-800 hover:text-white ease-in-out duration-300 transition-all">New Note</Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                        <DialogTitle>New Note</DialogTitle>
+                        <DialogDescription>
+                            Type a title of your new note. Click save when you are done.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className="w-full">
+                        <div className=" items-center gap-4">
+                            <div className="w-full">
+                            </div>
+                            {/* <Input
+                                onChange={(e) => setNewNoteTitle(e.target.value)}
+                                // onChange={() => handleNewNoteTitle()}
+                                id="name"
+                                defaultValue="new note title"
+                                className="w-full rounded-md "
+                                placeholder="New note title"
+                            /> */}
+                            <NotePicker newNoteTitle={newNoteTitle} setNewNoteTitle={setNewNoteTitle} />
+                        </div>
+                    </div>
+                    <DialogFooter className="flex gap-2 justify-between ease">
+                        <Button type="reset" variant={"secondary"}
+                            className="hover:bg-slate-700 hover:text-white ease-in-out transition-all duration-200 ">Cancel</Button>
+                        <Button type="submit"
+                            onClick={handleNewNoteTitle}
+                            variant={"default"} className="hover:bg-slate-700 hover:text-white ease-in-out transition-all duration-200">Create new note</Button>
+                        <Toolbar editor={null} content={""} />
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog >
+        </div>
     )
 }
 export default NewNoteDialog

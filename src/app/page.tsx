@@ -1,8 +1,16 @@
 // Home page
+import NotePicker from "@/components/NotePicker";
+import Toolbar from "@/components/Toolbar";
 import { Button } from "@/components/ui/button";
 import Tiptap from "@/components/ui/tiptap";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { Editor } from "@tiptap/react";
+
+type Props = {
+  editor: Editor | null;
+  content: string;
+};
 
 export default function Home() {
   return (
@@ -11,9 +19,7 @@ export default function Home() {
         <h3 className="font-semibold">
           Welcome to <span className="text-teal-500 uppercase font-medium">the note</span> taking app.
         </h3>
-        {/* <div className="bg-slate-100 p-2 rounded-lg ring-1 ring-slate-300">
-          <Tiptap />
-        </div> */}
+
         <div className="h-full">
           {/* <h2 className="font-semibold"><span className="text-teal-500">AI</span> enhanced note-taking app.</h2> */}
           {/* <h2 className="font-light text-xl italic">
@@ -21,7 +27,6 @@ export default function Home() {
               <TyxpewriterTitle />
             </div>
           </h2> */}
-          {/* <NotePicker /> */}
           <div className="flex mt-4 justify-start">
             <Link href="/sign-in">
               <Button className="bg-teal-500 px-4">Start typing <ArrowRight className="ml-1 h-5 w-5" strokeWidth={2} /></Button>

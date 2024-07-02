@@ -3,7 +3,12 @@ import StarterKit from '@tiptap/starter-kit'
 import Toolbar from '@/components/Toolbar'
 import { Underline } from '@tiptap/extension-underline'
 
-const Tiptap = ({ onChange, content }) => {
+type TiptapProps = {
+    onChange: (newContent: string) => void;
+    content: string;
+};
+
+const Tiptap = ({ onChange, content }: TiptapProps) => {
     const handleChange = (newContent: string) => {
         onChange(newContent)
     }
@@ -12,7 +17,7 @@ const Tiptap = ({ onChange, content }) => {
         extensions: [StarterKit, Underline],
         editorProps: {
             attributes: {
-                class: 'flex flex-col px-4 py-3 justify-start border-b border-r border-l text-slate-800 items-start w-full gap-2 font-medium text-[1rem] pt-4 rounded-bl-md rounded-br-md bg-slate-50 outline-none',
+                class: 'flex flex-col px-4 py-3 justify-start border-b border-r border-l text-slate-800 items-start w-full gap-2 font-medium text-[1rem] pt-4 rounded-bl-md rounded-br-md outline-none',
             },
         },
         onUpdate: ({ editor }) => {
@@ -21,7 +26,7 @@ const Tiptap = ({ onChange, content }) => {
     })
 
     return (
-        <div className='w-full px-4'>
+        <div className=' '>
             <Toolbar editor={editor} content={content} />
             <EditorContent style={{ whiteSpace: 'pre-line' }} editor={editor} />
         </div>
