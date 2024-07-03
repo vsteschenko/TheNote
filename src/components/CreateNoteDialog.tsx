@@ -22,14 +22,14 @@ type Props = {
 };
 
 export function NewNoteDialog() {
-    const [newNoteTitle, setNewNoteTitle] = useState("new note")
+    const [newNoteContent, setNewNoteContent] = useState("new note")
 
     const handleNewNoteTitle = async (e: any) => {
         e.preventDefault();
         const savedToken = localStorage.getItem('Token');
 
         axios.post('https://lovely-project-with-oleg-e553e563fe5a.herokuapp.com/note/', {
-            text: newNoteTitle,
+            text: newNoteContent,
         }, {
             headers: { Authorization: `Token ${savedToken}` }
         }).then(response => console.log(response))
@@ -39,9 +39,9 @@ export function NewNoteDialog() {
     //     e.preventDefault();
     //     const savedToken = localStorage.getItem('token');
     //     console.log(savedToken);
-    //     console.log(newNoteTitle);
+    //     console.log(newNoteContent);
     //     await axios.post('https://lovely-project-with-oleg-e553e563fe5a.herokuapp.com/note/', {
-    //         text: newNoteTitle
+    //         text: newNoteContent
     //     }, {
     //         headers: { Authorization: `Token ${savedToken}` }
     //     })
@@ -71,7 +71,7 @@ export function NewNoteDialog() {
                         <div className=" items-center gap-4">
                             <div className="w-full">
                             </div>
-                            <NotePicker newNoteTitle={newNoteTitle} setNewNoteTitle={setNewNoteTitle} />
+                            <NotePicker newNoteContent={newNoteContent} setNewNoteContent={setNewNoteContent} />
                         </div>
                     </div>
                     <DialogFooter className="flex gap-2 justify-between ease">

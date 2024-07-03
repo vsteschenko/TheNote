@@ -3,11 +3,11 @@ import Tiptap from './ui/tiptap';
 import axios from 'axios';
 
 interface NotePickerProps {
-    newNoteTitle: string;
-    setNewNoteTitle: (title: string) => void;
+    newNoteContent: string;
+    setNewNoteContent: (title: string) => void;
 }
 
-const NotePicker: React.FC<NotePickerProps> = ({ newNoteTitle, setNewNoteTitle }) => {
+const NotePicker: React.FC<NotePickerProps> = ({ newNoteContent, setNewNoteContent }) => {
     const [content, setContent] = useState<string>('');
     const [savedToken, setSavedToken] = useState<string>(''); // Assuming you manage the token state here
 
@@ -15,7 +15,7 @@ const NotePicker: React.FC<NotePickerProps> = ({ newNoteTitle, setNewNoteTitle }
         const cleanedContent = newContent.replace(/<\/?p>/g, ''); // Remove <p> and </p> tags
 
         setContent(cleanedContent); // Update content state
-        setNewNoteTitle(cleanedContent); // Update newNoteTitle state
+        setNewNoteContent(cleanedContent); // Update newNoteContent state
     };
 
     useEffect(() => {
