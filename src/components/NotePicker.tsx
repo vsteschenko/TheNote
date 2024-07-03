@@ -30,7 +30,7 @@ const NotePicker: React.FC<NotePickerProps> = ({ newNoteTitle, setNewNoteTitle }
     }, [content, savedToken]); // Dependencies array, effect runs when content or savedToken changes
 
     return (
-        <form className=' w-full place-items-center  pt-10 mb-10'>
+        <form className=' w-full place-items-center h-[240px] pt-10 mb-10'>
             <Tiptap
                 content={content}
                 onChange={handleContentChange}

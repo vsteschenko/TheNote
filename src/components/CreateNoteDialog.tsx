@@ -60,7 +60,7 @@ export function NewNoteDialog() {
                 <DialogTrigger asChild>
                     <Button variant="outline" className="hover:bg-slate-800 hover:text-white ease-in-out duration-300 transition-all">New Note</Button>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-[425px]">
+                <DialogContent className="w-screen sm:max-w-[90vw] md:max-w-[90vw]">
                     <DialogHeader>
                         <DialogTitle>New Note</DialogTitle>
                         <DialogDescription>
@@ -71,14 +71,6 @@ export function NewNoteDialog() {
                         <div className=" items-center gap-4">
                             <div className="w-full">
                             </div>
-                            {/* <Input
-                                onChange={(e) => setNewNoteTitle(e.target.value)}
-                                // onChange={() => handleNewNoteTitle()}
-                                id="name"
-                                defaultValue="new note title"
-                                className="w-full rounded-md "
-                                placeholder="New note title"
-                            /> */}
                             <NotePicker newNoteTitle={newNoteTitle} setNewNoteTitle={setNewNoteTitle} />
                         </div>
                     </div>

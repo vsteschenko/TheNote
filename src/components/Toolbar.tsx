@@ -83,7 +83,7 @@ const Toolbar = ({ editor, content }: Props) => {
 
     return (
         <div className="px-2 py-2 bg-slate rounded-tl-md rounded-tr-md flex justify-between items-start gap-4 w-full flex-wrap border ">
-            <div className="flex justify-between items-center gap-3 w-full lg:w-10/12 flex-wrap">
+            <div className="flex justify-between items-center gap-3 w-full flex-wrap">
                 <div className='flex gap-2'>
                     {renderButton('bold', Bold, editor.isActive('bold'))}
                     {renderButton('italic', Italic, editor.isActive('italic'))}
