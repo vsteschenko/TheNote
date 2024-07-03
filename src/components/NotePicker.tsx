@@ -12,7 +12,10 @@ const NotePicker: React.FC<NotePickerProps> = ({ newNoteTitle, setNewNoteTitle }
     const [savedToken, setSavedToken] = useState<string>(''); // Assuming you manage the token state here
 
     const handleContentChange = (newContent: string) => {
-        setContent(newContent); // Update content state
+        const cleanedContent = newContent.replace(/<\/?p>/g, ''); // Remove <p> and </p> tags
+
+        setContent(cleanedContent); // Update content state
+        setNewNoteTitle(cleanedContent); // Update newNoteTitle state
     };
 
     useEffect(() => {
@@ -27,7 +30,7 @@ const NotePicker: React.FC<NotePickerProps> = ({ newNoteTitle, setNewNoteTitle }
     }, [content, savedToken]); // Dependencies array, effect runs when content or savedToken changes
 
     return (
-        <form className='w-full place-items-center  pt-10 mb-10'>
+        <form className=' w-full place-items-center  pt-10 mb-10'>
             <Tiptap
                 content={content}
                 onChange={handleContentChange}
