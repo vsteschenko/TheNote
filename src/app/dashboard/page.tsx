@@ -10,6 +10,8 @@ const DashboardPage = () => {
     const [notes, setNotes] = useState([]);
     const [user, setUser] = useState([]);
     const [date, setDate] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     useEffect(() => {
         const token = localStorage.getItem("Token")
@@ -30,12 +32,16 @@ const DashboardPage = () => {
                 setNotes(notesArray);
                 setUser(userArray);
                 setDate(dateArray);
+                setIsLoading(false);
             })
-            .catch((error) => { console.log(error); })
+            .catch((error) => {
+                console.log(error);
+                setIsLoading(false);
+            })
     }, [])
 
     return (
-        <div className="p-10 w-full border-2">
+        <section className="p-10 w-full border-2">
             <div className="m-auto">
                 <div className="rounded-md rounded-r-md flex justify-between flex-col items-center md:flex-row border-slate-300 bg-inherit">
                     <div className="flex items-center">
@@ -53,7 +59,7 @@ const DashboardPage = () => {
                 </div>
             </div>
             <div className="grid sm:col-3 span-col-3 md:col-5 col-1 gap-3 first-letter:h-full text-center">
-                {notes.length === 0
+                {isLoading ? <h1 className='text-gray-500'>Loading...</h1> : notes.length === 0
                     ? <h1 className='text-gray-500'>No notes yet.</h1>
                     : notes.map((note, index) => (
                         <div key={index} className='hover:shadow-xl ease-in-out duration-300 w-full mt-3 border-2 border-slate-300 p-4 rounded-lg'>
@@ -65,7 +71,7 @@ const DashboardPage = () => {
                         </div>
                     ))}
             </div>
-        </div>
+        </section>
     )
 }
 
