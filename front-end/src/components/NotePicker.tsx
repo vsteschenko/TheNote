@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import Tiptap from './ui/tiptap';
 
@@ -10,7 +12,7 @@ const NotePicker: React.FC = () => {
 
     return (
         <form className='max-w-3xl w-full grid place-items-center mx-auto pt-10 mb-10'>
-            <div className="max-w-3xl text-center text-sky-300 mb-10">NotePicker</div>
+            <div className="max-w-3xl text-center text-slate-900 mb-10">New Note</div>
             <Tiptap
                 content={content}
                 onChange={handleContentChange}

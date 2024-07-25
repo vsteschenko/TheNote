@@ -1,7 +1,7 @@
 import React from 'react';
 import { Editor, isActive } from '@tiptap/react';
 import {
-    Hold,
+    // Hold,
     Strikethrough,
     Italic,
     List,
@@ -39,7 +39,7 @@ const Toolbar = ({ editor, content }: Props) => {
                     : 'bg-slate-50 text-teal-500 outline-teal-700 border-2 p-2 rounded-lg block border-teal-500'
             }
         >
-            <Icon size={18} />
+            <Icon size={16} />
         </button>
     );
 
@@ -48,7 +48,6 @@ const Toolbar = ({ editor, content }: Props) => {
             <div className="flex justify-start items-center gap-3 w-full lg:w-10/12 flex-wrap">
                 {renderButton('bold', Bold, editor.isActive('bold'))}
                 {renderButton('italic', Italic, editor.isActive('italic'))}
-                {renderButton('underline', Underline, editor.isActive('underline'))}
             </div>
         </div>
     );

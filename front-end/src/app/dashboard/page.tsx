@@ -31,8 +31,6 @@ const DashboardPage = () => {
                 setNotes(notesArray);
                 setUser(userArray);
                 setDate(dateArray);
-                // console.log(userArray);
-                // console.log(response.data);
                 console.log(dateArray);
 
             }

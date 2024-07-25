@@ -1,6 +1,8 @@
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Toolbar from '@/components/Toolbar'
+import { Heading } from 'lucide-react'
+
 
 const Tiptap = ({ onChange, content }) => {
     const handleChange = (newContent: string) => {

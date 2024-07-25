@@ -1,4 +1,6 @@
 // Home page
+import NotePicker from "@/components/NotePicker";
+import Toolbar from "@/components/Toolbar";
 import { Button } from "@/components/ui/button";
 import Tiptap from "@/components/ui/tiptap";
 import { ArrowRight } from "lucide-react";
@@ -27,6 +29,7 @@ export default function Home() {
               <Button className="bg-teal-500 px-4">Start typing <ArrowRight className="ml-1 h-5 w-5" strokeWidth={2} /></Button>
             </Link>
           </div>
+          <Toolbar editor={null} content={''} />
         </div>
       </div>
     </div>
